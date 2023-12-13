@@ -71,13 +71,18 @@ session_start();
             <div class="u-black u-container-style u-inner-container-layout u-opacity u-opacity-95 u-sidenav">
               <div class="u-inner-container-layout u-sidenav-overflow">
                 <div class="u-menu-close"></div>
-                <ul class="u-align-center u-nav u-popupmenu-items u-unstyled u-nav-3"><li class="u-nav-item"><a class="u-button-style u-nav-link" href="index.php">Home</a>
-</li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="Archive.php">Archive</a><div class="u-nav-popup"><ul class="u-custom-font u-font-georgia u-h-spacing-20 u-nav u-unstyled u-v-spacing-10 u-nav-4"><li class="u-nav-item"><a class="u-button-style u-nav-link">DPID</a>
-</li><li class="u-nav-item"><a class="u-button-style u-nav-link">Vendor</a>
-</li></ul>
+                <ul class="u-align-center u-nav u-popupmenu-items u-unstyled u-nav-3">
+                  <li class="u-nav-item">
+                    <a class="u-button-style u-nav-link" href="index.php">Home</a>
+                  </li>
+                  <li class="u-nav-item">
+                    <a class="u-button-style u-nav-link" href="Archive.php">Archive</a>
+                  </li>
+                  <li class="u-nav-item">
+                    <a class="u-button-style u-nav-link" href="Database/Logout.php">Logout</a>
+                  </li>
 </div>
-</li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="Login.php">Login</a>
-</li></ul>
+</ul>
               </div>
             </div>
             <div class="u-black u-menu-overlay u-opacity u-opacity-70"></div>
@@ -87,7 +92,7 @@ session_start();
     <section class="u-clearfix u-section-1" id="sec-5161">
       <div class="u-clearfix u-sheet u-sheet-1">
         <div class="u-form u-form-1">
-        <form action="Transaction/upload.php" class="u-clearfix u-form-spacing-15 u-form-vertical u-inner-form" style="padding: 15px;" name="form" method="post" enctype="multipart/form-data">
+        <form action="Transaction/upload.php" style="padding: 15px;" method="post" enctype="multipart/form-data">
             <?php
               if($_SESSION['type_user'] == "DPID")
               {
@@ -128,8 +133,8 @@ session_start();
             </div>
             <div class="u-align-left u-form-group u-form-submit">
         <!-- Mengganti elemen <a> menjadi <button> -->
-        <button type="submit" name="upload" class="u-border-none u-btn u-btn-submit u-button-style u-custom-color-2 u-btn-1">Submit</button>
-    </div>
+                  <button type="submit" name="upload" class="u-btn  u-button-style u-custom-color-2">Upload</button>
+            </div>
           </form> 
         </div>
       </div>
