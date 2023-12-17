@@ -8,7 +8,7 @@ if (isset($_POST['upload'])) {
     if ($_SESSION['type_user'] == "DPID") {
         $recipient = $_POST['Recipient'];
 
-        $queryGetIDVendor = "SELECT * FROM MST_VENDOR WHERE EMAIL = '$recipient' ";
+        $queryGetIDVendor = "SELECT * FROM MST_VENDOR WHERE EMAIL = '$recipient'";
 
         $sqlQueryGetIDVendor = mysqli_query($koneksi, $queryGetIDVendor);
         $dataVendor = mysqli_fetch_assoc($sqlQueryGetIDVendor);
@@ -27,6 +27,7 @@ if (isset($_POST['upload'])) {
         }
 
         for ($i = 0; $i < $jumlahFile; $i++) {
+            $date = date("Y/m/d");
             $file_name = $files['Attachment']['name'][$i];
             $file_path = $files['Attachment']['tmp_name'][$i];
             $nama_file = uniqid() . '-' . $file_name;
@@ -35,6 +36,7 @@ if (isset($_POST['upload'])) {
             
             $queryInsertData = "INSERT INTO TRN_FILES_DPID VALUES ( 
                 NULL,
+                '$date',
                 '$idVendor',
                 '$id_user',
                 '$subject',
@@ -56,6 +58,7 @@ if (isset($_POST['upload'])) {
         $id_user = $_SESSION['id_user'];
         $subject = $_POST['Subject'];
         $description = $_POST['Description'];
+        $date = date("Y/m/d");
 
         $files = $_FILES;
         $jumlahFile = count($files['Attachment']['name']);
@@ -77,6 +80,7 @@ if (isset($_POST['upload'])) {
             
             $queryInsertData = "INSERT INTO TRN_FILES_VENDOR VALUES ( 
                 NULL,
+                '$date',
                 '$id_user',
                 '$subject',
                 '$description',
