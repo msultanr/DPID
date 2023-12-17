@@ -9,9 +9,7 @@ if($_SESSION['type_user'] == "Vendor")
 $queryGetId = "SELECT * FROM MST_USER_VENDOR WHERE ID = '" . $_SESSION['id_user'] . "' ";
 $sqlGetId = mysqli_query($koneksi, $queryGetId);
 $cekGetId = mysqli_fetch_assoc($sqlGetId);
-
 $id_vendor = $cekGetId['ID_VENDOR'];
-
 }
 // session_start();
 
@@ -66,7 +64,7 @@ $id_vendor = $cekGetId['ID_VENDOR'];
 </li><li class="u-nav-item"><a class="u-button-style u-nav-link u-white">Vendor</a>
 </li></ul>
 </div>
-</li><li class="u-nav-item"><a class="u-border-2 u-border-active-palette-1-base u-border-hover-palette-1-base u-border-no-left u-border-no-right u-border-no-top u-button-style u-nav-link u-text-active-custom-color-2 u-text-grey-90 u-text-hover-grey-90" href="Login.php" style="padding: 8px;">Login</a>
+</li><li class="u-nav-item"><a class="u-border-2 u-border-active-palette-1-base u-border-hover-palette-1-base u-border-no-left u-border-no-right u-border-no-top u-button-style u-nav-link u-text-active-custom-color-2 u-text-grey-90 u-text-hover-grey-90" href="Database/Logout.php" style="padding: 8px;">Logout</a>
 </li></ul>
           </div>
           <div class="u-custom-menu u-nav-container-collapse">
@@ -78,7 +76,7 @@ $id_vendor = $cekGetId['ID_VENDOR'];
 </li><li class="u-nav-item"><a class="u-button-style u-nav-link">Vendor</a>
 </li></ul>
 </div>
-</li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="Login.html">Login</a>
+</li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="Database/Logout.php">Logout</a>
 </li></ul>
               </div>
             </div>
@@ -131,14 +129,17 @@ $id_vendor = $cekGetId['ID_VENDOR'];
                     </h2>-->
                       <img class="u-blog-control u-image u-image-default u-image-2" src="Assets/emailreceived.png" alt="" data-image-width="2000" data-image-height="1333"><!--/blog_post_image-->
                       <?php
-                    
-                    $queryGetEmailReceived = "SELECT COUNT(*) as Total FROM TRN_FILES_DPID WHERE ID_VENDOR = '" . $id_vendor . "'";
+                      $queryGetId = "SELECT * FROM MST_USER_VENDOR WHERE ID = '" . $_SESSION['id_user'] . "' ";
+                      $sqlGetId = mysqli_query($koneksi, $queryGetId);
+                      $cekGetId = mysqli_fetch_assoc($sqlGetId);
+                      
+                      $id_vendor = $cekGetId['ID_VENDOR'];
+                      $queryGetEmailReceived = "SELECT COUNT(*) as Total FROM TRN_FILES_DPID WHERE ID_VENDOR = '" . $id_vendor . "'";
 
-                    $sqlGetEmailReceived = mysqli_query($koneksi, $queryGetEmailReceived);
-                    $cekGetEmailReceived = mysqli_fetch_assoc($sqlGetEmailReceived);
+                      $sqlGetEmailReceived = mysqli_query($koneksi, $queryGetEmailReceived);
+                      $cekGetEmailReceived = mysqli_fetch_assoc($sqlGetEmailReceived);
 
-                    echo '<p class="u-text u-text-8">' . $cek['Total'] . '</p>';
-
+                      echo '<p class="u-text u-text-8">' . $cekGetEmailReceived['Total'] . '</p>';
                     ?>
                   </div>
                 </div><!--blog_post_content-->
@@ -189,46 +190,73 @@ $id_vendor = $cekGetId['ID_VENDOR'];
               <col width="25%">
               <col width="25%">
             </colgroup>
-            <thead class="u-grey-50 u-table-header u-table-header-1">
-              <tr style="height: 21px;">
-                <th class="u-border-1 u-border-grey-50 u-table-cell">Column 1 </th>
-                <th class="u-border-1 u-border-grey-50 u-table-cell">Column 2 </th>
-                <th class="u-border-1 u-border-grey-50 u-table-cell">Column 3 </th>
-                <th class="u-border-1 u-border-grey-50 u-table-cell">Column 4 </th>
-              </tr>
-            </thead>
-            <tbody class="u-table-body">
-              <tr style="height: 75px;">
-                <td class="u-border-1 u-border-grey-40 u-border-no-left u-border-no-right u-table-cell">Row 1</td>
-                <td class="u-border-1 u-border-grey-40 u-border-no-left u-border-no-right u-table-cell">Description</td>
-                <td class="u-border-1 u-border-grey-40 u-border-no-left u-border-no-right u-table-cell">Description</td>
-                <td class="u-border-1 u-border-grey-40 u-border-no-left u-border-no-right u-table-cell">Description</td>
-              </tr>
-              <tr style="height: 76px;">
-                <td class="u-border-1 u-border-grey-40 u-border-no-left u-border-no-right u-table-cell">Row 2</td>
-                <td class="u-border-1 u-border-grey-40 u-border-no-left u-border-no-right u-table-cell">Description</td>
-                <td class="u-border-1 u-border-grey-40 u-border-no-left u-border-no-right u-table-cell">Description</td>
-                <td class="u-border-1 u-border-grey-40 u-border-no-left u-border-no-right u-table-cell">Description</td>
-              </tr>
-              <tr style="height: 76px;">
-                <td class="u-border-1 u-border-grey-40 u-border-no-left u-border-no-right u-table-cell">Row 3</td>
-                <td class="u-border-1 u-border-grey-40 u-border-no-left u-border-no-right u-table-cell">Description</td>
-                <td class="u-border-1 u-border-grey-40 u-border-no-left u-border-no-right u-table-cell">Description</td>
-                <td class="u-border-1 u-border-grey-40 u-border-no-left u-border-no-right u-table-cell">Description</td>
-              </tr>
-              <tr style="height: 76px;">
-                <td class="u-border-1 u-border-grey-40 u-border-no-left u-border-no-right u-table-cell">Row 4</td>
-                <td class="u-border-1 u-border-grey-40 u-border-no-left u-border-no-right u-table-cell">Description</td>
-                <td class="u-border-1 u-border-grey-40 u-border-no-left u-border-no-right u-table-cell">Description</td>
-                <td class="u-border-1 u-border-grey-40 u-border-no-left u-border-no-right u-table-cell">Description</td>
-              </tr>
-            </tbody>
+            <?php
+                    if ($_SESSION['type_user'] == "DPID") {
+                      $query = "SELECT * FROM TRN_FILES_DPID WHERE ID_USER = '" . $_SESSION['id_user'] . "'";
+
+                      $sql = mysqli_query($koneksi, $query);
+
+                      echo '<thead class="u-grey-50 u-table-header u-table-header-1">
+                      <tr style="height: 21px;">
+                        <th class="u-border-1 u-border-grey-50 u-table-cell">NO</th>
+                        <th class="u-border-1 u-border-grey-50 u-table-cell">Date</th>
+                        <th class="u-border-1 u-border-grey-50 u-table-cell">ID Vendor</th></th>
+                        <th class="u-border-1 u-border-grey-50 u-table-cell">ID User</th>
+                        <th class="u-border-1 u-border-grey-50 u-table-cell">Subject</th>
+                        <th class="u-border-1 u-border-grey-50 u-table-cell">Description</th>
+                        <th class="u-border-1 u-border-grey-50 u-table-cell">File Name</th>
+                        <th class="u-border-1 u-border-grey-50 u-table-cell">File Path</th>
+                      </tr>
+                    </thead>';
+                    while ($row = mysqli_fetch_array($sql)){
+                      echo'<tbody class="u-table-body">
+                      <tr style="height: 75px;">
+                        <td class="u-border-1 u-border-grey-40 u-border-no-left u-border-no-right u-table-cell">'.$row['ID'].'</td>
+                        <td class="u-border-1 u-border-grey-40 u-border-no-left u-border-no-right u-table-cell">'.$row['DATE'].'</td>
+                        <td class="u-border-1 u-border-grey-40 u-border-no-left u-border-no-right u-table-cell">'.$row['ID_VENDOR'].'</td>
+                        <td class="u-border-1 u-border-grey-40 u-border-no-left u-border-no-right u-table-cell">'.$row['ID_USER'].'</td>
+                        <td class="u-border-1 u-border-grey-40 u-border-no-left u-border-no-right u-table-cell">'.$row['SUBJECT'].'</td>
+                        <td class="u-border-1 u-border-grey-40 u-border-no-left u-border-no-right u-table-cell">'.$row['DESCRIPTION'].'</td>
+                        <td class="u-border-1 u-border-grey-40 u-border-no-left u-border-no-right u-table-cell">'.$row['FILE_NAME'].'</td>
+                        <td class="u-border-1 u-border-grey-40 u-border-no-left u-border-no-right u-table-cell">'.$row['FILE_PATH'].'</td>
+                      </tr>
+                      </tbody>';
+                    }
+                  }else{
+                    $query = "SELECT * FROM TRN_FILES_VENDOR WHERE ID_USER = '" . $_SESSION['id_user'] . "'";
+
+                      $sql = mysqli_query($koneksi, $query);
+
+                      echo '<thead class="u-grey-50 u-table-header u-table-header-1">
+                      <tr style="height: 21px;">
+                        <th class="u-border-1 u-border-grey-50 u-table-cell">NO</th>
+                        <th class="u-border-1 u-border-grey-50 u-table-cell">DATE</th>
+                        <th class="u-border-1 u-border-grey-50 u-table-cell">ID User</th>
+                        <th class="u-border-1 u-border-grey-50 u-table-cell">Subject</th>
+                        <th class="u-border-1 u-border-grey-50 u-table-cell">Description</th>
+                        <th class="u-border-1 u-border-grey-50 u-table-cell">File Name</th>
+                        <th class="u-border-1 u-border-grey-50 u-table-cell">File Path</th>
+                      </tr>
+                    </thead>';
+                    while ($row = mysqli_fetch_array($sql)){
+                      echo'<tbody class="u-table-body">
+                      <tr style="height: 75px;">
+                        <td class="u-border-1 u-border-grey-40 u-border-no-left u-border-no-right u-table-cell">'.$row['ID'].'</td>
+                        <td class="u-border-1 u-border-grey-40 u-border-no-left u-border-no-right u-table-cell">'.$row['DATE'].'</td>
+                        <td class="u-border-1 u-border-grey-40 u-border-no-left u-border-no-right u-table-cell">'.$row['ID_USER'].'</td>
+                        <td class="u-border-1 u-border-grey-40 u-border-no-left u-border-no-right u-table-cell">'.$row['SUBJECT'].'</td>
+                        <td class="u-border-1 u-border-grey-40 u-border-no-left u-border-no-right u-table-cell">'.$row['DESCRIPTION'].'</td>
+                        <td class="u-border-1 u-border-grey-40 u-border-no-left u-border-no-right u-table-cell">'.$row['FILE_NAME'].'</td>
+                        <td class="u-border-1 u-border-grey-40 u-border-no-left u-border-no-right u-table-cell">'.$row['FILE_PATH'].'</td>
+                      </tr>
+                      </tbody>';
+                    }
+                  }
+                    ?>
           </table>
         </div>
       </div>
     </section>
-    
-    
     
     <footer class="u-align-center-md u-align-center-sm u-align-center-xs u-clearfix u-footer u-white" id="sec-7512"><div class="u-clearfix u-sheet u-sheet-1">
         <a href="https://nicepage.com" class="u-image u-logo u-image-1" data-image-width="143" data-image-height="139">
