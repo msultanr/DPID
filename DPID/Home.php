@@ -45,6 +45,7 @@
           <div class="u-custom-menu u-nav-container">
             <ul class="u-custom-font u-font-georgia u-nav u-spacing-70 u-unstyled u-nav-1"><li class="u-nav-item"><a class="u-border-2 u-border-active-palette-1-base u-border-hover-palette-1-base u-border-no-left u-border-no-right u-border-no-top u-button-style u-nav-link u-text-active-custom-color-2 u-text-grey-90 u-text-hover-grey-90" href="Home.php" style="padding: 8px;">Home</a>
 </li><li class="u-nav-item"><a class="u-border-2 u-border-active-palette-1-base u-border-hover-palette-1-base u-border-no-left u-border-no-right u-border-no-top u-button-style u-nav-link u-text-active-custom-color-2 u-text-grey-90 u-text-hover-grey-90" href="Archive.php" style="padding: 8px;">Archive</a>
+</li><li class="u-nav-item"><a class="u-border-2 u-border-active-palette-1-base u-border-hover-palette-1-base u-border-no-left u-border-no-right u-border-no-top u-button-style u-nav-link u-text-active-custom-color-2 u-text-grey-90 u-text-hover-grey-90" href="Dashboard.php" style="padding: 8px;">Dashboard</a>
 <!-- <div class="u-nav-popup">
   <ul class="u-custom-font u-font-georgia u-h-spacing-20 u-nav u-unstyled u-v-spacing-10 u-nav-2">
     <li class="u-nav-item"><a class="u-button-style u-nav-link u-white">DPID</a>

@@ -49,8 +49,14 @@ session_start();
           </div>
           <div class="u-custom-menu u-nav-container">
             <ul class="u-custom-font u-font-georgia u-nav u-spacing-70 u-unstyled u-nav-1"><li class="u-nav-item"><a class="u-border-2 u-border-active-palette-1-base u-border-hover-palette-1-base u-border-no-left u-border-no-right u-border-no-top u-button-style u-nav-link u-text-active-custom-color-2 u-text-grey-90 u-text-hover-grey-90" href="index.php" style="padding: 8px;">Home</a>
-</li><li class="u-nav-item"><a class="u-border-2 u-border-active-palette-1-base u-border-hover-palette-1-base u-border-no-left u-border-no-right u-border-no-top u-button-style u-nav-link u-text-active-custom-color-2 u-text-grey-90 u-text-hover-grey-90" href="Archive.php" style="padding: 8px;">Archive</a>
-<!-- <div class="u-nav-popup">
+            <?php
+                  if (isset($_SESSION['is_login']))
+                  { ?>
+          </li><li class="u-nav-item"><a class="u-border-2 u-border-active-palette-1-base u-border-hover-palette-1-base u-border-no-left u-border-no-right u-border-no-top u-button-style u-nav-link u-text-active-custom-color-2 u-text-grey-90 u-text-hover-grey-90" href="Archive.php" style="padding: 8px;">Archive</a>
+
+        </li><li class="u-nav-item"><a class="u-border-2 u-border-active-palette-1-base u-border-hover-palette-1-base u-border-no-left u-border-no-right u-border-no-top u-button-style u-nav-link u-text-active-custom-color-2 u-text-grey-90 u-text-hover-grey-90" href="Dashboard.php" style="padding: 8px;">Dashboard</a>
+<?php }?>
+        <!-- <div class="u-nav-popup">
   <ul class="u-custom-font u-font-georgia u-h-spacing-20 u-nav u-unstyled u-v-spacing-10 u-nav-2">
     <li class="u-nav-item"><a class="u-button-style u-nav-link u-white">DPID</a>
 </li><li class="u-nav-item"><a class="u-button-style u-nav-link u-white">Vendor</a>
@@ -73,10 +79,24 @@ else{
             <div class="u-black u-container-style u-inner-container-layout u-opacity u-opacity-95 u-sidenav">
               <div class="u-inner-container-layout u-sidenav-overflow">
                 <div class="u-menu-close"></div>
-                <ul class="u-align-center u-nav u-popupmenu-items u-unstyled u-nav-3"><li class="u-nav-item"><a class="u-button-style u-nav-link" href="index.php">Home</a>
-</li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="Archive.php">Archive</a><div class="u-nav-popup"><ul class="u-custom-font u-font-georgia u-h-spacing-20 u-nav u-unstyled u-v-spacing-10 u-nav-4"><li class="u-nav-item"><a class="u-button-style u-nav-link">DPID</a>
-</li><li class="u-nav-item"><a class="u-button-style u-nav-link">Vendor</a>
-</li></ul>
+                <ul class="u-align-center u-nav u-popupmenu-items u-unstyled u-nav-3">
+                  <li class="u-nav-item">
+                    <a class="u-button-style u-nav-link" href="index.php">Home</a>
+                  </li>
+                  <?php
+                  if (isset($_SESSION['is_login']))
+                  { ?>
+                  <li class="u-nav-item">
+                    <a class="u-button-style u-nav-link" href="Archive.php">Archivee</a>
+                  </li>
+                  </li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="Database/Logout.php" style="padding: 8px;">Logout</a>
+                  <?php
+                  }
+                  else{
+                  ?></li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="Login.php" style="padding: 8px;">Login</a>
+                  <?php }
+                  ?>
+                  </ul>
 </div>
 </li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="Login.php">Login</a>
 </li></ul>
