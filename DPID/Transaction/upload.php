@@ -7,8 +7,9 @@ include '../Database/connection.php';
 if (isset($_POST['upload'])) {
     if ($_SESSION['type_user'] == "DPID") {
         $recipient = $_POST['Recipient'];
+        echo "<script> alert('$recipient')</script>";
 
-        $queryGetIDVendor = "SELECT * FROM MST_VENDOR WHERE EMAIL = '$recipient'";
+        $queryGetIDVendor = "SELECT * FROM MST_VENDOR WHERE VENDOR_NAME = '$recipient'";
 
         $sqlQueryGetIDVendor = mysqli_query($koneksi, $queryGetIDVendor);
         $dataVendor = mysqli_fetch_assoc($sqlQueryGetIDVendor);
