@@ -7,7 +7,6 @@ include '../Database/connection.php';
 if (isset($_POST['upload'])) {
     if ($_SESSION['type_user'] == "DPID") {
         $recipient = $_POST['Recipient'];
-        echo "<script> alert('$recipient')</script>";
 
         $queryGetIDVendor = "SELECT * FROM MST_VENDOR WHERE VENDOR_NAME = '$recipient'";
 
@@ -21,7 +20,8 @@ if (isset($_POST['upload'])) {
 
         $files = $_FILES;
         $jumlahFile = count($files['Attachment']['name']);
-        $folderUpload = "../File Uploads/DPID/ID_User (". $id_user.")";
+        $folderUpload = "../File Uploads/DP-ID/ID_User (". $id_user.")";
+        
         if (!is_dir($folderUpload)) {
             # jika tidak maka folder harus dibuat terlebih dahulu
             mkdir($folderUpload, 0777, $rekursif = true);
