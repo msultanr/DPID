@@ -195,6 +195,7 @@ $id_vendor = $cekGetId['ID'];
 
                       $sql = mysqli_query($koneksi, $query);
 
+
                       echo '<thead class="u-grey-50 u-table-header u-table-header-1">
                       <tr style="height: 21px;">
                         <th class="u-border-1 u-border-grey-50 u-table-cell">NO</th>
@@ -204,10 +205,15 @@ $id_vendor = $cekGetId['ID'];
                         <th class="u-border-1 u-border-grey-50 u-table-cell">Subject</th>
                         <th class="u-border-1 u-border-grey-50 u-table-cell">Description</th>
                         <th class="u-border-1 u-border-grey-50 u-table-cell">File Name</th>
-                        <th class="u-border-1 u-border-grey-50 u-table-cell">File Path</th>
+                        <th class="u-border-1 u-border-grey-50 u-table-cell">Aksi</th>
                       </tr>
                     </thead>';
-                    while ($row = mysqli_fetch_array($sql)){
+                    while ($row = mysqli_fetch_array($sql))
+                    {
+                      $dpid = "DPID/";
+                      $dot = "..";
+                      $paths = str_replace($dot, "DPID", $row['FILE_PATH']);
+                      $pathses = str_replace($dpid, "", $paths);
                       echo'<tbody class="u-table-body">
                       <tr style="height: 75px;">
                         <td class="u-border-1 u-border-grey-40 u-border-no-left u-border-no-right u-table-cell">'.$row['ID'].'</td>
@@ -217,7 +223,9 @@ $id_vendor = $cekGetId['ID'];
                         <td class="u-border-1 u-border-grey-40 u-border-no-left u-border-no-right u-table-cell">'.$row['SUBJECT'].'</td>
                         <td class="u-border-1 u-border-grey-40 u-border-no-left u-border-no-right u-table-cell">'.$row['DESCRIPTION'].'</td>
                         <td class="u-border-1 u-border-grey-40 u-border-no-left u-border-no-right u-table-cell">'.$row['FILE_NAME'].'</td>
-                        <td class="u-border-1 u-border-grey-40 u-border-no-left u-border-no-right u-table-cell">'.$row['FILE_PATH'].'</td>
+                        <td>
+                        <a href="'.$pathses.'" download class="btn btn-warning">Download</a>
+                        </td>                      
                       </tr>
                       </tbody>';
                     }
@@ -237,7 +245,12 @@ $id_vendor = $cekGetId['ID'];
                         <th class="u-border-1 u-border-grey-50 u-table-cell">File Path</th>
                       </tr>
                     </thead>';
-                    while ($row = mysqli_fetch_array($sql)){
+                    while ($row = mysqli_fetch_array($sql))
+                    {
+                      $dpid = "DPID/";
+                      $dot = "..";
+                      $paths = str_replace($dot, "DPID", $row['FILE_PATH']);
+                      $pathses = str_replace($dpid, "", $paths);
                       echo'<tbody class="u-table-body">
                       <tr style="height: 75px;">
                         <td class="u-border-1 u-border-grey-40 u-border-no-left u-border-no-right u-table-cell">'.$row['ID'].'</td>
@@ -246,8 +259,10 @@ $id_vendor = $cekGetId['ID'];
                         <td class="u-border-1 u-border-grey-40 u-border-no-left u-border-no-right u-table-cell">'.$row['SUBJECT'].'</td>
                         <td class="u-border-1 u-border-grey-40 u-border-no-left u-border-no-right u-table-cell">'.$row['DESCRIPTION'].'</td>
                         <td class="u-border-1 u-border-grey-40 u-border-no-left u-border-no-right u-table-cell">'.$row['FILE_NAME'].'</td>
-                        <td class="u-border-1 u-border-grey-40 u-border-no-left u-border-no-right u-table-cell">'.$row['FILE_PATH'].'</td>
-                      </tr>
+                        <td>
+                        <a href="'.$pathses.'" download class="btn btn-warning">Download</a>
+                        </td>
+                        </tr>
                       </tbody>';
                     }
                   }
@@ -278,7 +293,7 @@ $id_vendor = $cekGetId['ID'];
                       <tr style="height: 21px;">
                         <th class="u-border-1 u-border-grey-50 u-table-cell">NO</th>
                         <th class="u-border-1 u-border-grey-50 u-table-cell">Username</th>
-                        <th class="u-border-1 u-border-grey-50 u-table-cell">Passwordr</th></th>
+                        <th class="u-border-1 u-border-grey-50 u-table-cell">Password</th></th>
                         <th class="u-border-1 u-border-grey-50 u-table-cell">Email</th>
                         <th class="u-border-1 u-border-grey-50 u-table-cell">Status Active</th>
                         <th class="u-border-1 u-border-grey-50 u-table-cell">Date Added</th>
@@ -306,7 +321,7 @@ $id_vendor = $cekGetId['ID'];
                         <th class="u-border-1 u-border-grey-50 u-table-cell">NO</th>
                         <th class="u-border-1 u-border-grey-50 u-table-cell">Name</th>
                         <th class="u-border-1 u-border-grey-50 u-table-cell">Username</th>
-                        <th class="u-border-1 u-border-grey-50 u-table-cell">Passwordr</th></th>
+                        <th class="u-border-1 u-border-grey-50 u-table-cell">Password</th></th>
                         <th class="u-border-1 u-border-grey-50 u-table-cell">Email</th>
                         <th class="u-border-1 u-border-grey-50 u-table-cell">Status Active</th>
                         <th class="u-border-1 u-border-grey-50 u-table-cell">Date Added</th>
