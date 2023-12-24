@@ -30,25 +30,24 @@ CREATE TABLE IF NOT EXISTS `mst_user_dpid` (
   PRIMARY KEY (`ID`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4;
 
--- Dumping data for table archivehub_dpid.mst_user_dpid: ~0 rows (approximately)
-REPLACE INTO `mst_user_dpid` (`ID`, `USERNAME`, `PASSWORD`, `EMAIL`, `FLAG_ACTIVE`, `DATE_ADDED`) VALUES
-	(1, 'sultan', 'sultan', 'sultan@email.com', 'Y', '2023-12-09');
+-- Data exporting was unselected.
 
 -- Dumping structure for table archivehub_dpid.mst_user_vendor
 CREATE TABLE IF NOT EXISTS `mst_user_vendor` (
   `ID` int(11) NOT NULL AUTO_INCREMENT,
+  `ID_VENDOR` int(5) DEFAULT NULL,
   `NAME` varchar(50) NOT NULL,
+  `EMAIL_VENDOR` varchar(50) NOT NULL,
   `USERNAME` varchar(50) NOT NULL,
   `EMAIL` varchar(50) NOT NULL,
   `PASSWORD` varchar(25) NOT NULL,
   `FLAG_ACTIVE` varchar(1) NOT NULL,
   `DATE_ADDED` varchar(20) NOT NULL,
+  `ALAMAT` varchar(50) NOT NULL,
   PRIMARY KEY (`ID`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4;
 
--- Dumping data for table archivehub_dpid.mst_user_vendor: ~1 rows (approximately)
-REPLACE INTO `mst_user_vendor` (`ID`, `NAME`, `USERNAME`, `EMAIL`, `PASSWORD`, `FLAG_ACTIVE`, `DATE_ADDED`) VALUES
-	(1, 'Jordi', 'jordi', 'jordi@dpid.com', 'jordi', 'Y', '1/12/2023 22:47:00');
+-- Data exporting was unselected.
 
 -- Dumping structure for table archivehub_dpid.mst_vendor
 CREATE TABLE IF NOT EXISTS `mst_vendor` (
@@ -61,10 +60,7 @@ CREATE TABLE IF NOT EXISTS `mst_vendor` (
   PRIMARY KEY (`ID`) USING BTREE
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4;
 
--- Dumping data for table archivehub_dpid.mst_vendor: ~2 rows (approximately)
-REPLACE INTO `mst_vendor` (`ID`, `VENDOR_NAME`, `EMAIL`, `ALAMAT`, `FLAG_ACTIVE`, `DATE_ADDED`) VALUES
-	(1, 'Microsoft', 'microsoft@microsoft.com', 'Jakarta', 'Y', '2023-12-09'),
-	(2, 'Cisco', 'cisco@cisco.com', 'Jakarta', 'Y', '2023-12-09');
+-- Data exporting was unselected.
 
 -- Dumping structure for table archivehub_dpid.trn_files_dpid
 CREATE TABLE IF NOT EXISTS `trn_files_dpid` (
@@ -77,9 +73,9 @@ CREATE TABLE IF NOT EXISTS `trn_files_dpid` (
   `FILE_NAME` varchar(200) NOT NULL,
   `FILE_PATH` varchar(200) NOT NULL,
   PRIMARY KEY (`ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=110 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=90 DEFAULT CHARSET=utf8mb4;
 
--- Dumping data for table archivehub_dpid.trn_files_dpid: ~0 rows (approximately)
+-- Data exporting was unselected.
 
 -- Dumping structure for table archivehub_dpid.trn_files_vendor
 CREATE TABLE IF NOT EXISTS `trn_files_vendor` (
@@ -91,9 +87,9 @@ CREATE TABLE IF NOT EXISTS `trn_files_vendor` (
   `FILE_NAME` varchar(250) NOT NULL,
   `FILE_PATH` varchar(250) NOT NULL,
   PRIMARY KEY (`ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=28 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=26 DEFAULT CHARSET=utf8mb4;
 
--- Dumping data for table archivehub_dpid.trn_files_vendor: ~0 rows (approximately)
+-- Data exporting was unselected.
 
 /*!40103 SET TIME_ZONE=IFNULL(@OLD_TIME_ZONE, 'system') */;
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
