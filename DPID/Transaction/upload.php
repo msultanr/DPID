@@ -8,7 +8,7 @@ if (isset($_POST['upload'])) {
     if ($_SESSION['type_user'] == "DPID") {
         $recipient = $_POST['Recipient'];
 
-        $queryGetIDVendor = "SELECT * FROM MST_VENDOR WHERE VENDOR_NAME = '$recipient'";
+        $queryGetIDVendor = "SELECT * FROM MST_VENDOR WHERE EMAIL = '$recipient'";
 
         $sqlQueryGetIDVendor = mysqli_query($koneksi, $queryGetIDVendor);
         $dataVendor = mysqli_fetch_assoc($sqlQueryGetIDVendor);
@@ -20,8 +20,7 @@ if (isset($_POST['upload'])) {
 
         $files = $_FILES;
         $jumlahFile = count($files['Attachment']['name']);
-        $folderUpload = "../File Uploads/DP-ID/ID_User (". $id_user.")";
-        
+        $folderUpload = "../File Uploads/DPID/ID_User (". $id_user.")";
         if (!is_dir($folderUpload)) {
             # jika tidak maka folder harus dibuat terlebih dahulu
             mkdir($folderUpload, 0777, $rekursif = true);

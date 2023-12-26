@@ -11,7 +11,7 @@ if (isset($_POST['login'])) {
 	$pass = $_POST['password'];
 	// $hashpass = md5($pass);
 	// sql query
-	$sql = mysqli_query($koneksi, "SELECT PASSWORD, ID FROM MST_USER_VENDOR WHERE flag_active = 'Y' and (username ='$user' or email = '$user')");
+	$sql = mysqli_query($koneksi, "SELECT PASSWORD, ID, ID_VENDOR FROM MST_USER_VENDOR WHERE flag_active = 'Y' and (username ='$user' or email = '$user')");
 	$cek2 = mysqli_num_rows($sql);
 	$cek3 = mysqli_fetch_assoc($sql);
 	
@@ -23,6 +23,8 @@ if (isset($_POST['login'])) {
 		$_SESSION['username'] = $user;
 		$_SESSION['id_user'] = $cek3['ID'];
 		$_SESSION['type_user'] = "Vendor";
+		$_SESSION['id_vendor'] = $cek3['ID_VENDOR'];
+		
 		echo "<script>document.location.href='../index.php';</script>";
 		}
 		else{
