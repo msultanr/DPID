@@ -100,8 +100,8 @@ session_start();
                 ?>
                 <div class="u-form-group u-form-name u-label-top">
               <label for="name-6797" class="u-label u-label-1">Select Recipient : </label>
-            <select class="form-control" name="Recipient" id="recipient">
-              <option value=""></option>
+            <select class="form-control" name="Recipient" id="Recipient">
+              <!-- <option value=""></option> -->
               <?php
                 include 'database/connection.php';
                 $query = "SELECT * FROM mst_vendor ORDER BY vendor_name ASC";
