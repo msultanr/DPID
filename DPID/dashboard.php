@@ -3,7 +3,6 @@
 include 'Database/connection.php';
 
 session_start();
-
 if($_SESSION['type_user'] == "Vendor")
 {
 $queryGetId = "SELECT * FROM MST_USER_VENDOR WHERE ID = '" . $_SESSION['id_user'] . "' ";
@@ -11,6 +10,7 @@ $sqlGetId = mysqli_query($koneksi, $queryGetId);
 $cekGetId = mysqli_fetch_assoc($sqlGetId);
 $id_vendor = $cekGetId['ID_VENDOR'];
 }
+
 // session_start();
 
 ?>
@@ -155,7 +155,6 @@ $id_vendor = $cekGetId['ID_VENDOR'];
                     </h2><!--/blog_post_header-->
                     <img src="Assets/user.png" width="115" height="115" style="margin-top:35px; margin-bottom:25px; bottom:15px">
                       <?php
-                    
                     $queryTotalUser = "SELECT COUNT(*) as Total FROM MST_USER_VENDOR WHERE ID_VENDOR = '" . $id_vendor . "'";
 
                     $sqlTotalUser = mysqli_query($koneksi, $queryTotalUser);
@@ -186,15 +185,13 @@ $id_vendor = $cekGetId['ID_VENDOR'];
               <col width="25%">
               <col width="25%">
               <col width="25%">
-              <col width="25%">
-              <col width="25%">
-              <col width="25%">
             </colgroup>
             <?php
                     if ($_SESSION['type_user'] == "DPID") {
                       $query = "SELECT * FROM TRN_FILES_DPID WHERE ID_USER = '" . $_SESSION['id_user'] . "'";
 
                       $sql = mysqli_query($koneksi, $query);
+
 
                       echo '<thead class="u-grey-50 u-table-header u-table-header-1">
                       <tr style="height: 21px;">
@@ -205,9 +202,15 @@ $id_vendor = $cekGetId['ID_VENDOR'];
                         <th class="u-border-1 u-border-grey-50 u-table-cell">Subject</th>
                         <th class="u-border-1 u-border-grey-50 u-table-cell">Description</th>
                         <th class="u-border-1 u-border-grey-50 u-table-cell">File Name</th>
+                        <th class="u-border-1 u-border-grey-50 u-table-cell">Aksi</th>
                       </tr>
                     </thead>';
-                    while ($row = mysqli_fetch_array($sql)){
+                    while ($row = mysqli_fetch_array($sql))
+                    {
+                      $dpid = "DPID/";
+                      $dot = "..";
+                      $paths = str_replace($dot, "DPID", $row['FILE_PATH']);
+                      $pathses = str_replace($dpid, "", $paths);
                       echo'<tbody class="u-table-body">
                       <tr style="height: 75px;">
                         <td class="u-border-1 u-border-grey-40 u-border-no-left u-border-no-right u-table-cell">'.$row['ID'].'</td>
@@ -217,6 +220,9 @@ $id_vendor = $cekGetId['ID_VENDOR'];
                         <td class="u-border-1 u-border-grey-40 u-border-no-left u-border-no-right u-table-cell">'.$row['SUBJECT'].'</td>
                         <td class="u-border-1 u-border-grey-40 u-border-no-left u-border-no-right u-table-cell">'.$row['DESCRIPTION'].'</td>
                         <td class="u-border-1 u-border-grey-40 u-border-no-left u-border-no-right u-table-cell">'.$row['FILE_NAME'].'</td>
+                        <td>
+                        <a href="'.$pathses.'" download class="btn btn-warning">Download</a>
+                        </td>                      
                       </tr>
                       </tbody>';
                     }
@@ -233,9 +239,15 @@ $id_vendor = $cekGetId['ID_VENDOR'];
                         <th class="u-border-1 u-border-grey-50 u-table-cell">Subject</th>
                         <th class="u-border-1 u-border-grey-50 u-table-cell">Description</th>
                         <th class="u-border-1 u-border-grey-50 u-table-cell">File Name</th>
+                        <th class="u-border-1 u-border-grey-50 u-table-cell">File Path</th>
                       </tr>
                     </thead>';
-                    while ($row = mysqli_fetch_array($sql)){
+                    while ($row = mysqli_fetch_array($sql))
+                    {
+                      $dpid = "DPID/";
+                      $dot = "..";
+                      $paths = str_replace($dot, "DPID", $row['FILE_PATH']);
+                      $pathses = str_replace($dpid, "", $paths);
                       echo'<tbody class="u-table-body">
                       <tr style="height: 75px;">
                         <td class="u-border-1 u-border-grey-40 u-border-no-left u-border-no-right u-table-cell">'.$row['ID'].'</td>
@@ -244,7 +256,10 @@ $id_vendor = $cekGetId['ID_VENDOR'];
                         <td class="u-border-1 u-border-grey-40 u-border-no-left u-border-no-right u-table-cell">'.$row['SUBJECT'].'</td>
                         <td class="u-border-1 u-border-grey-40 u-border-no-left u-border-no-right u-table-cell">'.$row['DESCRIPTION'].'</td>
                         <td class="u-border-1 u-border-grey-40 u-border-no-left u-border-no-right u-table-cell">'.$row['FILE_NAME'].'</td>
-                      </tr>
+                        <td>
+                        <a href="'.$pathses.'" download class="btn btn-warning">Download</a>
+                        </td>
+                        </tr>
                       </tbody>';
                     }
                   }
@@ -252,9 +267,10 @@ $id_vendor = $cekGetId['ID_VENDOR'];
           </table>
         </div>
       </div>
-    <!-- </section>
-    <section class="u-align-center u-clearfix u-section-2" id="sec-b463"> -->
-      <div class="u-clearfix u-sheet u-valign-top u-sheet-1">
+      
+    <!-- </section> -->
+
+    <div class="u-clearfix u-sheet u-valign-top u-sheet-1">
         <p class="u-text u-text-default u-text-1">Data Diterima</p>
         <div class="u-expanded-width u-table u-table-responsive u-table-1">
           <table class="u-table-entity u-table-entity-1">
@@ -268,6 +284,7 @@ $id_vendor = $cekGetId['ID_VENDOR'];
             </colgroup>
             <?php
                     if ($_SESSION['type_user'] == "DPID") {
+                      
                       $query2 = "SELECT * FROM TRN_FILES_VENDOR";
 
                       $sql2 = mysqli_query($koneksi, $query2);
@@ -280,9 +297,14 @@ $id_vendor = $cekGetId['ID_VENDOR'];
                         <th class="u-border-1 u-border-grey-50 u-table-cell">Subject</th>
                         <th class="u-border-1 u-border-grey-50 u-table-cell">Description</th>
                         <th class="u-border-1 u-border-grey-50 u-table-cell">File Name</th>
-                      </tr>
+                        <th class="u-border-1 u-border-grey-50 u-table-cell">File Path</th>
+                        </tr>
                     </thead>';
                     while ($row2 = mysqli_fetch_array($sql2)){
+                      $dpid = "DPID/";
+                      $dot = "..";
+                      $paths = str_replace($dot, "DPID", $row['FILE_PATH']);
+                      $pathses = str_replace($dpid, "", $paths);
                       echo'<tbody class="u-table-body">
                       <tr style="height: 75px;">
                         <td class="u-border-1 u-border-grey-40 u-border-no-left u-border-no-right u-table-cell">'.$row2['ID'].'</td>
@@ -291,6 +313,9 @@ $id_vendor = $cekGetId['ID_VENDOR'];
                         <td class="u-border-1 u-border-grey-40 u-border-no-left u-border-no-right u-table-cell">'.$row2['SUBJECT'].'</td>
                         <td class="u-border-1 u-border-grey-40 u-border-no-left u-border-no-right u-table-cell">'.$row2['DESCRIPTION'].'</td>
                         <td class="u-border-1 u-border-grey-40 u-border-no-left u-border-no-right u-table-cell">'.$row2['FILE_NAME'].'</td>
+                        <td>
+                        <a href="'.$pathses.'" download class="btn btn-warning">Download</a>
+                        </td>
                       </tr>
                       </tbody>';
                     }
@@ -307,6 +332,7 @@ $id_vendor = $cekGetId['ID_VENDOR'];
                         <th class="u-border-1 u-border-grey-50 u-table-cell">Subject</th>
                         <th class="u-border-1 u-border-grey-50 u-table-cell">Description</th>
                         <th class="u-border-1 u-border-grey-50 u-table-cell">File Name</th>
+                        <th class="u-border-1 u-border-grey-50 u-table-cell">File Path</th>
                       </tr>
                     </thead>';
                     while ($row3 = mysqli_fetch_array($sql3)){
@@ -318,6 +344,9 @@ $id_vendor = $cekGetId['ID_VENDOR'];
                         <td class="u-border-1 u-border-grey-40 u-border-no-left u-border-no-right u-table-cell">'.$row3['SUBJECT'].'</td>
                         <td class="u-border-1 u-border-grey-40 u-border-no-left u-border-no-right u-table-cell">'.$row3['DESCRIPTION'].'</td>
                         <td class="u-border-1 u-border-grey-40 u-border-no-left u-border-no-right u-table-cell">'.$row3['FILE_NAME'].'</td>
+                        <td>
+                        <a href="'.$pathses.'" download class="btn btn-warning">Download</a>
+                        </td> 
                       </tr>
                       </tbody>';
                     }
@@ -326,60 +355,73 @@ $id_vendor = $cekGetId['ID_VENDOR'];
           </table>
         </div>
       </div>
-    <!-- </section>
+    
 
-    <section class="u-align-center u-clearfix u-section-2" id="sec-b463"> -->
+    <section class="u-align-center u-clearfix u-section-2" id="sec-b463"> 
       <div class="u-clearfix u-sheet u-valign-top u-sheet-1">
-        <p class="u-text u-text-default u-text-1">Total User</p>
+        <p class="u-text u-text-default u-text-1">Data User</p>
         <div class="u-expanded-width u-table u-table-responsive u-table-1">
           <table class="u-table-entity u-table-entity-1">
             <colgroup>
               <col width="25%">
               <col width="25%">
               <col width="25%">
+              <col width="25%">
             </colgroup>
             <?php
                     if ($_SESSION['type_user'] == "DPID") {
-                      $query4 = "SELECT ID, USERNAME, EMAIL FROM MST_USER_DPID";
+                      $query = "SELECT * FROM MST_USER_DPID WHERE ID = '" . $_SESSION['id_user'] . "'";
 
-                      $sql4 = mysqli_query($koneksi, $query4);
+                      $sql = mysqli_query($koneksi, $query);
 
                       echo '<thead class="u-grey-50 u-table-header u-table-header-1">
                       <tr style="height: 21px;">
                         <th class="u-border-1 u-border-grey-50 u-table-cell">NO</th>
-                        <th class="u-border-1 u-border-grey-50 u-table-cell">USERNAME</th>
-                        <th class="u-border-1 u-border-grey-50 u-table-cell">Email</th></th>
+                        <th class="u-border-1 u-border-grey-50 u-table-cell">Username</th>
+                        <th class="u-border-1 u-border-grey-50 u-table-cell">Password</th></th>
+                        <th class="u-border-1 u-border-grey-50 u-table-cell">Email</th>
+                        <th class="u-border-1 u-border-grey-50 u-table-cell">Status Active</th>
+                        <th class="u-border-1 u-border-grey-50 u-table-cell">Date Added</th>
                       </tr>
                     </thead>';
-                    while ($row4 = mysqli_fetch_array($sql4)){
+                    while ($row = mysqli_fetch_array($sql)){
                       echo'<tbody class="u-table-body">
                       <tr style="height: 75px;">
-                        <td class="u-border-1 u-border-grey-40 u-border-no-left u-border-no-right u-table-cell">'.$row4['ID'].'</td>
-                        <td class="u-border-1 u-border-grey-40 u-border-no-left u-border-no-right u-table-cell">'.$row4['USERNAME'].'</td>
-                        <td class="u-border-1 u-border-grey-40 u-border-no-left u-border-no-right u-table-cell">'.$row4['EMAIL'].'</td>
+                        <td class="u-border-1 u-border-grey-40 u-border-no-left u-border-no-right u-table-cell">'.$row['ID'].'</td>
+                        <td class="u-border-1 u-border-grey-40 u-border-no-left u-border-no-right u-table-cell">'.$row['USERNAME'].'</td>
+                        <td class="u-border-1 u-border-grey-40 u-border-no-left u-border-no-right u-table-cell">'.$row['PASSWORD'].'</td>
+                        <td class="u-border-1 u-border-grey-40 u-border-no-left u-border-no-right u-table-cell">'.$row['EMAIL'].'</td>
+                        <td class="u-border-1 u-border-grey-40 u-border-no-left u-border-no-right u-table-cell">'.$row['FLAG_ACTIVE'].'</td>
+                        <td class="u-border-1 u-border-grey-40 u-border-no-left u-border-no-right u-table-cell">'.$row['DATE_ADDED'].'</td>
                       </tr>
                       </tbody>';
                     }
                   }else{
-                    $query5 = "SELECT ID, USERNAME, NAME, EMAIL FROM MST_USER_VENDOR WHERE ID_VENDOR = '" . $id_vendor . "'";
+                    $query = "SELECT * FROM MST_USER_VENDOR WHERE ID = '" . $_SESSION['id_user'] . "'";
 
-                      $sql5 = mysqli_query($koneksi, $query5);
+                      $sql = mysqli_query($koneksi, $query);
 
                       echo '<thead class="u-grey-50 u-table-header u-table-header-1">
                       <tr style="height: 21px;">
-                        <th class="u-border-1 u-border-grey-50 u-table-cell">ID</th>
-                        <th class="u-border-1 u-border-grey-50 u-table-cell">USERNAME</th>
-                        <th class="u-border-1 u-border-grey-50 u-table-cell">NAME</th>
-                        <th class="u-border-1 u-border-grey-50 u-table-cell">EMAIL</th>
+                        <th class="u-border-1 u-border-grey-50 u-table-cell">NO</th>
+                        <th class="u-border-1 u-border-grey-50 u-table-cell">Name</th>
+                        <th class="u-border-1 u-border-grey-50 u-table-cell">Username</th>
+                        <th class="u-border-1 u-border-grey-50 u-table-cell">Password</th></th>
+                        <th class="u-border-1 u-border-grey-50 u-table-cell">Email</th>
+                        <th class="u-border-1 u-border-grey-50 u-table-cell">Status Active</th>
+                        <th class="u-border-1 u-border-grey-50 u-table-cell">Date Added</th>
                       </tr>
                     </thead>';
-                    while ($row5 = mysqli_fetch_array($sql5)){
+                    while ($row = mysqli_fetch_array($sql)){
                       echo'<tbody class="u-table-body">
                       <tr style="height: 75px;">
-                        <td class="u-border-1 u-border-grey-40 u-border-no-left u-border-no-right u-table-cell">'.$row5['ID'].'</td>
-                        <td class="u-border-1 u-border-grey-40 u-border-no-left u-border-no-right u-table-cell">'.$row5['USERNAME'].'</td>
-                        <td class="u-border-1 u-border-grey-40 u-border-no-left u-border-no-right u-table-cell">'.$row5['NAME'].'</td>
-                        <td class="u-border-1 u-border-grey-40 u-border-no-left u-border-no-right u-table-cell">'.$row5['EMAIL'].'</td>
+                        <td class="u-border-1 u-border-grey-40 u-border-no-left u-border-no-right u-table-cell">'.$row['ID'].'</td>
+                        <td class="u-border-1 u-border-grey-40 u-border-no-left u-border-no-right u-table-cell">'.$row['NAME'].'</td>
+                        <td class="u-border-1 u-border-grey-40 u-border-no-left u-border-no-right u-table-cell">'.$row['USERNAME'].'</td>
+                        <td class="u-border-1 u-border-grey-40 u-border-no-left u-border-no-right u-table-cell">'.$row['PASSWORD'].'</td>
+                        <td class="u-border-1 u-border-grey-40 u-border-no-left u-border-no-right u-table-cell">'.$row['EMAIL'].'</td>
+                        <td class="u-border-1 u-border-grey-40 u-border-no-left u-border-no-right u-table-cell">'.$row['FLAG_ACTIVE'].'</td>
+                        <td class="u-border-1 u-border-grey-40 u-border-no-left u-border-no-right u-table-cell">'.$row['DATE_ADDED'].'</td>
                       </tr>
                       </tbody>';
                     }
@@ -417,4 +459,3 @@ $id_vendor = $cekGetId['ID_VENDOR'];
         </div>
       </div></footer>  
 </body></html>
-
