@@ -59,10 +59,6 @@ $id_vendor = $cekGetId['ID'];
             <ul class="u-custom-font u-font-georgia u-nav u-spacing-70 u-unstyled u-nav-1"><li class="u-nav-item"><a class="u-border-2 u-border-active-palette-1-base u-border-hover-palette-1-base u-border-no-left u-border-no-right u-border-no-top u-button-style u-nav-link u-text-active-custom-color-2 u-text-grey-90 u-text-hover-grey-90" href="Home.php" style="padding: 8px;">Home</a>
 </li><li class="u-nav-item"><a class="u-border-2 u-border-active-palette-1-base u-border-hover-palette-1-base u-border-no-left u-border-no-right u-border-no-top u-button-style u-nav-link u-text-active-custom-color-2 u-text-grey-90 u-text-hover-grey-90" href="Archive.php" style="padding: 8px;">Archive</a>
 </li><li class="u-nav-item"><a class="u-border-2 u-border-active-palette-1-base u-border-hover-palette-1-base u-border-no-left u-border-no-right u-border-no-top u-button-style u-nav-link u-text-active-custom-color-2 u-text-grey-90 u-text-hover-grey-90" href="Dashboard.php" style="padding: 8px;">Dashboard</a>
-<div class="u-nav-popup"><ul class="u-custom-font u-font-georgia u-h-spacing-20 u-nav u-unstyled u-v-spacing-10 u-nav-2"><li class="u-nav-item"><a class="u-button-style u-nav-link u-white">DPID</a>
-</li><li class="u-nav-item"><a class="u-button-style u-nav-link u-white">Vendor</a>
-</li></ul>
-</div>
 </li><li class="u-nav-item"><a class="u-border-2 u-border-active-palette-1-base u-border-hover-palette-1-base u-border-no-left u-border-no-right u-border-no-top u-button-style u-nav-link u-text-active-custom-color-2 u-text-grey-90 u-text-hover-grey-90" href="Database/Logout.php" style="padding: 8px;">Logout</a>
 </li></ul>
           </div>
@@ -85,7 +81,7 @@ $id_vendor = $cekGetId['ID'];
       </div></header>
     <section class="u-clearfix u-section-1" id="sec-8b66">
       <div class="u-clearfix u-sheet u-sheet-1">
-        <p class="u-text u-text-default u-text-1">Summary</p><!--blog--><!--blog_options_json--><!--{"type":"Recent","source":"","tags":"","count":""}--><!--/blog_options_json-->
+        <p class="u-text u-text-default u-text-1">Data Diterima</p><!--blog--><!--blog_options_json--><!--{"type":"Recent","source":"","tags":"","count":""}--><!--/blog_options_json-->
         <div class="u-blog u-expanded-width u-blog-1">
           <div class="u-list-control"></div>
           <div class="u-repeater u-repeater-1"><!--blog_post-->
@@ -99,8 +95,7 @@ $id_vendor = $cekGetId['ID'];
                     <!--<h2 class="u-blog-control u-text u-text-3">
                       <a class="u-post-header-link" href="blog/post-5.html">blog_post_header_content--><!--/blog_post_header_content</a>
                     </h2>/blog_post_header-->
-                      <img class="u-blog-control u-image u-image-default u-image-1" src="Assets/emailsent.png" alt="" data-image-width="1500" data-image-height="500"><!--/blog_post_image-->
-                    
+                      <img class="u-blog-control u-image u-image-default u-image-1" src="Assets/emailsent.png" alt="" data-image-width="1500" data-image-height="500"><!--/blog_post_image-->                    
                     <?php
                     
                     $query = "SELECT COUNT(*) as Total FROM TRN_FILES_VENDOR WHERE ID_USER = '" . $_SESSION['id_user'] . "'";
@@ -114,7 +109,6 @@ $id_vendor = $cekGetId['ID'];
                   </div>
                 </div><!--blog_post_content-->
                 <!-- <div class="u-blog-control u-post-content u-text u-text-5 fr-view">Sample small text. Lorem ipsum dolor sit amet.</div> -->
-                <a href="blog/post-5.html" class="u-blog-control u-border-2 u-border-no-left u-border-no-right u-border-no-top u-border-palette-1-base u-btn u-btn-rectangle u-button-style u-none u-btn-1"><!--blog_post_readmore_content--><!--options_json--><!--{"content":"","defaultValue":"Read More"}--><!--/options_json-->Read More<!--/blog_post_readmore_content--></a><!--/blog_post_readmore-->
               </div>
             </div><div class="u-blog-post u-container-style u-repeater-item u-video-cover u-white">
               <div class="u-container-layout u-similar-container u-valign-top u-container-layout-3"><!--blog_post_header-->
@@ -143,7 +137,6 @@ $id_vendor = $cekGetId['ID'];
                   </div>
                 </div><!--blog_post_content-->
                 <!-- <div class="u-blog-control u-post-content u-text u-text-9 fr-view">Sample small text. Lorem ipsum dolor sit amet.</div> -->
-                <a href="blog/post-4.html" class="u-blog-control u-border-2 u-border-no-left u-border-no-right u-border-no-top u-border-palette-1-base u-btn u-btn-rectangle u-button-style u-none u-btn-2"><!--blog_post_readmore_content--><!--options_json--><!--{"content":"","defaultValue":"Read More"}--><!--/options_json-->Read More<!--/blog_post_readmore_content--></a><!--/blog_post_readmore-->
               </div>
             </div><div class="u-blog-post u-container-style u-repeater-item u-video-cover u-white">
               <div class="u-container-layout u-similar-container u-valign-top u-container-layout-5"><!--blog_post_header-->
@@ -168,7 +161,6 @@ $id_vendor = $cekGetId['ID'];
                   </div>
                 </div><!--blog_post_content-->
                 <!-- <div class="u-blog-control u-post-content u-text u-text-13 fr-view">Sample small text. Lorem ipsum dolor sit amet.</div> -->
-                <a href="blog/post-3.html" class="u-blog-control u-border-2 u-border-no-left u-border-no-right u-border-no-top u-border-palette-1-base u-btn u-btn-rectangle u-button-style u-none u-btn-3"><!--blog_post_readmore_content--><!--options_json--><!--{"content":"","defaultValue":"Read More"}--><!--/options_json-->Read More<!--/blog_post_readmore_content--></a><!--/blog_post_readmore-->
               </div>
             </div><!--/blog_post--><!--blog_post-->
             <!--/blog_post--><!--blog_post-->
@@ -180,7 +172,7 @@ $id_vendor = $cekGetId['ID'];
     </section>
     <section class="u-align-center u-clearfix u-section-2" id="sec-b463">
       <div class="u-clearfix u-sheet u-valign-top u-sheet-1">
-        <p class="u-text u-text-default u-text-1">Summary</p>
+        <p class="u-text u-text-default u-text-1">Data Diterima</p>
         <div class="u-expanded-width u-table u-table-responsive u-table-1">
           <table class="u-table-entity u-table-entity-1">
             <colgroup>
@@ -260,9 +252,104 @@ $id_vendor = $cekGetId['ID'];
                         <td class="u-border-1 u-border-grey-40 u-border-no-left u-border-no-right u-table-cell">'.$row['DESCRIPTION'].'</td>
                         <td class="u-border-1 u-border-grey-40 u-border-no-left u-border-no-right u-table-cell">'.$row['FILE_NAME'].'</td>
                         <td>
-                        <a href="'.$pathses.'" download class="btn btn-warning">Download</a>
+                        <a href="'.$pathses.'" download >Download</a>
                         </td>
                         </tr>
+                      </tbody>';
+                    }
+                  }
+                    ?>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section class="u-align-center u-clearfix u-section-2" id="sec-b463">
+      <div class="u-clearfix u-sheet u-valign-top u-sheet-1">
+        <p class="u-text u-text-default u-text-1">Data Terkirim</p>
+        <div class="u-expanded-width u-table u-table-responsive u-table-1">
+          <table class="u-table-entity u-table-entity-1">
+            <colgroup>
+              <col width="25%">
+              <col width="25%">
+              <col width="25%">
+              <col width="25%">
+            </colgroup>
+            <?php
+                    if ($_SESSION['type_user'] == "DPID") 
+                      {
+                        $query = "SELECT * FROM TRN_FILES_VENDOR WHERE ID_USER = '" . $_SESSION['id_user'] . "'";
+    
+                          $sql = mysqli_query($koneksi, $query);
+    
+                          echo '<thead class="u-grey-50 u-table-header u-table-header-1">
+                          <tr style="height: 21px;">
+                            <th class="u-border-1 u-border-grey-50 u-table-cell">NO</th>
+                            <th class="u-border-1 u-border-grey-50 u-table-cell">DATE</th>
+                            <th class="u-border-1 u-border-grey-50 u-table-cell">ID User</th>
+                            <th class="u-border-1 u-border-grey-50 u-table-cell">Subject</th>
+                            <th class="u-border-1 u-border-grey-50 u-table-cell">Description</th>
+                            <th class="u-border-1 u-border-grey-50 u-table-cell">File Name</th>
+                            <th class="u-border-1 u-border-grey-50 u-table-cell">File Path</th>
+                          </tr>
+                        </thead>';
+                        while ($row = mysqli_fetch_array($sql))
+                        {
+                          $dpid = "DPID/";
+                          $dot = "..";
+                          $paths = str_replace($dot, "DPID", $row['FILE_PATH']);
+                          $pathses = str_replace($dpid, "", $paths);
+                          echo'<tbody class="u-table-body">
+                          <tr style="height: 75px;">
+                            <td class="u-border-1 u-border-grey-40 u-border-no-left u-border-no-right u-table-cell">'.$row['ID'].'</td>
+                            <td class="u-border-1 u-border-grey-40 u-border-no-left u-border-no-right u-table-cell">'.$row['DATE'].'</td>
+                            <td class="u-border-1 u-border-grey-40 u-border-no-left u-border-no-right u-table-cell">'.$row['ID_USER'].'</td>
+                            <td class="u-border-1 u-border-grey-40 u-border-no-left u-border-no-right u-table-cell">'.$row['SUBJECT'].'</td>
+                            <td class="u-border-1 u-border-grey-40 u-border-no-left u-border-no-right u-table-cell">'.$row['DESCRIPTION'].'</td>
+                            <td class="u-border-1 u-border-grey-40 u-border-no-left u-border-no-right u-table-cell">'.$row['FILE_NAME'].'</td>
+                            <td>
+                            <a href="'.$pathses.'" download >Download</a>
+                            </td>
+                            </tr>
+                          </tbody>';
+                        }
+                  }else{
+                    $query = "SELECT * FROM TRN_FILES_DPID WHERE ID_USER = '" . $_SESSION['id_user'] . "'";
+
+                      $sql = mysqli_query($koneksi, $query);
+
+
+                      echo '<thead class="u-grey-50 u-table-header u-table-header-1">
+                      <tr style="height: 21px;">
+                        <th class="u-border-1 u-border-grey-50 u-table-cell">NO</th>
+                        <th class="u-border-1 u-border-grey-50 u-table-cell">Date</th>
+                        <th class="u-border-1 u-border-grey-50 u-table-cell">ID Vendor</th></th>
+                        <th class="u-border-1 u-border-grey-50 u-table-cell">ID User</th>
+                        <th class="u-border-1 u-border-grey-50 u-table-cell">Subject</th>
+                        <th class="u-border-1 u-border-grey-50 u-table-cell">Description</th>
+                        <th class="u-border-1 u-border-grey-50 u-table-cell">File Name</th>
+                        <th class="u-border-1 u-border-grey-50 u-table-cell">Aksi</th>
+                      </tr>
+                    </thead>';
+                    while ($row = mysqli_fetch_array($sql))
+                    {
+                      $dpid = "DPID/";
+                      $dot = "..";
+                      $paths = str_replace($dot, "DPID", $row['FILE_PATH']);
+                      $pathses = str_replace($dpid, "", $paths);
+                      echo'<tbody class="u-table-body">
+                      <tr style="height: 75px;">
+                        <td class="u-border-1 u-border-grey-40 u-border-no-left u-border-no-right u-table-cell">'.$row['ID'].'</td>
+                        <td class="u-border-1 u-border-grey-40 u-border-no-left u-border-no-right u-table-cell">'.$row['DATE'].'</td>
+                        <td class="u-border-1 u-border-grey-40 u-border-no-left u-border-no-right u-table-cell">'.$row['ID_VENDOR'].'</td>
+                        <td class="u-border-1 u-border-grey-40 u-border-no-left u-border-no-right u-table-cell">'.$row['ID_USER'].'</td>
+                        <td class="u-border-1 u-border-grey-40 u-border-no-left u-border-no-right u-table-cell">'.$row['SUBJECT'].'</td>
+                        <td class="u-border-1 u-border-grey-40 u-border-no-left u-border-no-right u-table-cell">'.$row['DESCRIPTION'].'</td>
+                        <td class="u-border-1 u-border-grey-40 u-border-no-left u-border-no-right u-table-cell">'.$row['FILE_NAME'].'</td>
+                        <td>
+                        <a href="'.$pathses.'" download class="btn btn-warning">Download</a>
+                        </td>                      
+                      </tr>
                       </tbody>';
                     }
                   }
